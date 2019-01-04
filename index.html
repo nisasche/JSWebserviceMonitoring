@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> -->
+    <title>Monitoring Webservices</title>
+  </head>
+<style>
+  
+  .mx-auto {
+    width: 80%;
+  }
+
+@media (max-width: 1100px) { 
+  .mx-auto {
+    width: 100%;
+  }
+
+ }
+
+</style>
+  <body>
+
+    <div class="container">
+            <div class="mx-auto">
+            
+              <input id="autoRefresh" onchange="autoRefresh()" type="checkbox" checked data-toggle="toggle">
+                Auto-Refresh
+            </input>
+        <!-- Content here -->
+        <div id="nav" class="mb-md-3 mt-md-3">
+            
+        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-evento-tab" data-toggle="pill" href="#pills-evento" role="tab" aria-controls="pills-evento" aria-selected="false">Evento</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-escada-tab" data-toggle="pill" href="#pills-escada" role="tab" aria-controls="pills-escada" aria-selected="false">Escada</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <h4 class="mt-md-3">Status Application</h4>
+              <div class="alert alert-success" role="alert">
+                Evento works
+              </div>
+              <div class="alert alert-danger" role="alert">
+                                 
+                  <a class="alert-link"  data-toggle="collapse" href="#escadalinks" aria-expanded="false" aria-controls="escadalinks">
+                      Escada has problems on production system
+                    </a>
+                  <div class="collapse" id="escadalinks">
+                    <div class="card card-body">
+                      <a href="https://lehrvertrag.ch" target="_blank">lehrvertrag.ch</a>
+                      <a href="https://qvweb.ch" target="_blank">qvweb.ch</a>
+                    </div>
+                  </div>
+
+              </div>
+              <div class="alert alert-warning" role="alert">
+               
+                  <a class="alert-link"  data-toggle="collapse" href="#jaxlinks" aria-expanded="false" aria-controls="jaxlinks">
+                      JaxForms has problems on test system 
+                    </a>
+                  <div class="collapse" id="jaxlinks">
+                    <div class="card card-body">
+                        <a href="https://emsa-test.ch" target="_blank">emsa-test.ch</a>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-evento" role="tabpanel" aria-labelledby="pills-evento-tab">
+
+                <h4 class="mt-md-3">Production</h4>
+                <div class="alert alert-success" role="alert">
+                    <a href="#" class="alert-link">Evento Production</a>
+                </div>
+                <h4 class="mt-md-3">Test</h4>
+                <div class="alert alert-success" role="alert">
+                    <a href="#" class="alert-link">Evento test</a>               
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="pills-escada" role="tabpanel" aria-labelledby="pills-escada-tab">Escada...</div>
+          </div>
+
+        </div>
+        </div>
+      </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!--<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> -->
+    <script>
+      
+      setTimeout(function(){ autoRefresh() }, 5000); 
+      
+      function autoRefresh(){
+        if ($('#autoRefresh').is(':checked')) { 
+          location.reload(true);
+        }
+      }
+    </script> 
+  </body>
+</html>
