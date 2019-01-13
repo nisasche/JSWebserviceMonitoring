@@ -1,3 +1,8 @@
+/*!
+ * JSWebserviceMonitoring
+ * Copyright 2019 nisasche
+ * Licensed under MIT (https://github.com/nisasche/JSWebserviceMonitoring/blob/master/LICENSE)
+ */
 
 var urls = [];
 var filePathTestUri = 'testuri.json'; 

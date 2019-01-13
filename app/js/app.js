@@ -1,4 +1,8 @@
-
+/*!
+ * JSWebserviceMonitoring
+ * Copyright 2019 nisasche
+ * Licensed under MIT (https://github.com/nisasche/JSWebserviceMonitoring/blob/master/LICENSE)
+ */
     
     $.getJSON('settings.json', function(data) {
         //console.log(data);
