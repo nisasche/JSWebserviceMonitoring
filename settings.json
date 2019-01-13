@@ -1,0 +1,44 @@
+ {
+
+    "application": [
+        {
+            "name": "evento",        
+            "kontext": ["BZI","BFF","BZEMME","restApi","OAuth"], 
+            "statusOk": 200,
+            "PROD": {
+                "url": "https://evento.erz.be.ch/"
+            },
+            "TEST": {
+                "url": "https://evento-test.erz.be.ch/"
+            }
+        },   
+            {
+            "name":"git",
+            "kontext":["nisasche","test"],
+            "statusOk": 200,
+            "PROD": {
+                    "url": "https://github.com/"
+                    },
+            "TEST": {
+                    "url": "https://github-test.com/"
+                    }
+            },
+
+            {
+                "name":"facebook",
+                "kontext":null,
+                "statusOk": 200,
+                "PROD": {
+                    "url": "https://facebook.com/"
+                    },
+                "TEST": {
+                    "url": "https://facebook-test.com/"
+                    }
+
+                }
+
+        ],
+
+    "refreshInterval": 5000
+
+}

@@ -1,0 +1,18 @@
+#nav, .tab-pane, .container {
+    margin-top: 1rem;
+  }
+  .mx-auto {
+      width: 80%;
+  }
+
+  #footer {
+    bottom: 0rem;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 1100px) { 
+    .mx-auto {
+      width: 100%;
+    }
+  
+   }

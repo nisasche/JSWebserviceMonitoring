@@ -1,0 +1,44 @@
+ {
+
+    "application": [
+        {
+            "name": "google",        
+            "kontext": null, 
+            "statusOk": 200,
+            "PROD": {
+                "url": "https://www.google.ch"
+            },
+            "TEST": {
+                "url": "https://google-test.ch"
+            }
+        },   
+            {
+            "name":"git",
+            "kontext":["nisasche","test"],
+            "statusOk": 200,
+            "PROD": {
+                    "url": "https://github.com/"
+                    },
+            "TEST": {
+                    "url": "https://github-test.com/"
+                    }
+            },
+
+            {
+                "name":"facebook",
+                "kontext":null,
+                "statusOk": 200,
+                "PROD": {
+                    "url": "https://facebook.com/"
+                    },
+                "TEST": {
+                    "url": "https://facebook-test.com/"
+                    }
+
+                }
+
+        ],
+
+    "refreshInterval": 5000
+
+}
