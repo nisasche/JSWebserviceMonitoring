@@ -1,15 +1,15 @@
- {
+{
 
     "application": [
         {
-            "name": "evento",        
-            "kontext": ["BZI","BFF","BZEMME","restApi","OAuth"], 
+            "name": "google",        
+            "kontext": null, 
             "statusOk": 200,
             "PROD": {
-                "url": "https://evento.erz.be.ch/"
+                "url": "https://www.google.ch"
             },
             "TEST": {
-                "url": "https://evento-test.erz.be.ch/"
+                "url": "https://google-test.ch"
             }
         },   
             {
