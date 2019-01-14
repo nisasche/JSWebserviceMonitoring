@@ -7,7 +7,7 @@
 //Function HTML Templates
 
 function navItem(name) {
-  $('#pills-tab').append('<li class="nav-item"><a class="nav-link" id="pills-'+name+'-tab" data-toggle="pill" href="#pills-'+name+'" role="tab" aria-controls="pills-'+name+'" aria-selected="false">'+name.toUpperCase()+'</a></li>');
+  $('#pills-tab').append('<li id="'+name+'" class="nav-item"><a class="nav-link" id="pills-'+name+'-tab" data-toggle="pill" href="#pills-'+name+'" role="tab" aria-controls="pills-'+name+'" aria-selected="false">'+name.toUpperCase()+'</a></li>');
 } 
 
 function statusApp(name){
