@@ -9,6 +9,11 @@ var filePathTestUri = 'testuri.json';
 
 var fs = require('fs');
 
+var intervalJson = fs.readFileSync('settings.json');
+var interval = intervalJson.refreshIntervalSec;
+
+setTimeout(function(){ 
+
   var settings = fs.readFileSync('settings.json');
 
   var jsonSettings = JSON.parse(settings);
@@ -16,7 +21,7 @@ var fs = require('fs');
   console.log(interval);
 
 
-setTimeout(function(){ 
+
 
   jsonSettings.application.forEach(element => {
      
@@ -55,6 +60,7 @@ var request = require('request');
 var json = {'result':[]};
 
 console.log(urls);
+urls.sort();
 urls.forEach(url => {
   
         request({ method: 'HEAD', uri: url.uri }, function(error, response, body) {

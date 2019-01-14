@@ -66,3 +66,8 @@
       setTimeout(function(){ 
           autoRefresh();
         }, getInterval()); 
+
+      setTimeout(function() {
+          var navbarHeigth = $('.navbar').css('height');
+          $('.tab-content').css('margin-top',navbarHeigth);
+      }, 100);

@@ -3,16 +3,27 @@
  * Copyright 2019 nisasche
  * Licensed under MIT (https://github.com/nisasche/JSWebserviceMonitoring/blob/master/LICENSE)
  */
-#nav, .tab-pane, .container {
+#nav, .tab-pane, .container, .tab-content{
     margin-top: 1rem;
   }
   .mx-auto {
       width: 80%;
   }
 
+  #interval {
+    width:  45px;
+  }
+
+  .back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 55px;
+    right: 20px;
+    display:none;
+}
+
   #footer {
-    bottom: 0rem;
-    margin-top: 2rem;
+    padding: 0.7rem;
     font-size: 0.9rem;
   }
   

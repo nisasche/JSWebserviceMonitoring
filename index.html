@@ -12,6 +12,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/fontawesome-free-5.6.3-web/css/all.min.css">
     <link rel="stylesheet" href="app/css//main.css"/>
     <title>Monitoring Webservices</title>
   </head>
@@ -20,24 +21,27 @@
     <div class="container mt-md-3">
             <div class="mx-auto">
             
-              
-              <div id="refresh" >
-                <input id="autoRefresh" onchange="autoRefresh()" type="checkbox" checked data-toggle="toggle">
-                auto-refresh
-                </input>
-                <input id="interval" onchange="getInterval()" type="number" value="5">
-                intervall (sec)
-                </input>
-              </div>
+            
 
         <!-- Content here -->
         <div id="nav" class="mb-md-3 mt-md-3">
-            
+        <div class="navbar fixed-top navbar-light bg-light">
         <ul class="nav nav-pills" id="pills-tab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">HOME</a>
             </li>
           </ul>
+          <div id="refresh" >
+            <input id="autoRefresh" onchange="autoRefresh()" type="checkbox" checked data-toggle="toggle">
+            auto-refresh
+            </input>
+            <input id="interval" onchange="getInterval()" type="number" value="5">
+            interval (sec)
+            </input>
+          </div>
+        </div> 
+    
+          </div>
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <h4 class="mt-md-3">Status Application</h4>
@@ -47,11 +51,12 @@
 
             </div>
 
-          </div>
-
          </div>
-        </div>
-        <div id="footer" class="text-center mt-md-3">
+        </div>  
+        <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-placement="left" style="display: block;">
+          <i class="fa fa-chevron-up" aria-hidden="true"></i>
+        </a>
+        <div id="footer" class="text-center fixed-bottom bg-dark mt-md-3">
           <a href="https://github.com/nisasche/JSWebserviceMonitoring" target="_blank">JSWebserviceMonitoring by nisasche on GitHub</a>
         </div>
       </div>
@@ -63,4 +68,24 @@
     <script src="app/js/helper.js"></script>
     <script src="app/js/app.js"></script>
   </body>
+  <script>
+  $(document).ready(function(){
+     $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#back-to-top').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+        
+
+});
+  </script>
 </html>
