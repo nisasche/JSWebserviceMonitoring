@@ -38,10 +38,11 @@
                     appStatus = 'danger';
                     failedUris.push(item.uri);
                   }
-                  console.log(itemStatus + ' '+ item.uri);
-                  console.log(failedUris);
-                  //alert(failedUris);
-            
+                  //console.log(itemStatus + ' '+ item.uri);
+                  //console.log(failedUris);
+                  if (item.date !== undefined) {
+                    $('#lastTestDate').text(item.date); 
+                  }
                 }
   
                 

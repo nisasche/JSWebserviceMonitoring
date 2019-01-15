@@ -9,6 +9,10 @@
   .mx-auto {
       width: 80%;
   }
+  
+  .tabHeader {
+    margin-top: 3.5rem;
+  }
 
   #interval {
     width:  45px;

@@ -21,8 +21,6 @@ setTimeout(function(){
   console.log(interval);
 
 
-
-
   jsonSettings.application.forEach(element => {
      
     var uriobj = {};

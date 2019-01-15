@@ -31,11 +31,11 @@ function pills(name){
 }
 
 function pillsH4(name,h4) {
-  $('#pills-'+name).append('<h4 class="mt-md-3">'+h4+'</h4><div id='+name+h4+'></div>');
+  $('#pills-'+name).append('<h4 class="tabHeader">'+h4+'</h4><div id='+name+h4+'></div>');
 }
 
 function alertItem(appendId,uriData,appStatus) {
-  $('#'+appendId).append('<div class="alert alert-'+appStatus+'" role="alert"><a href="'+uriData.uri+'" target="_blank" class="alert-link">'+uriData.uri+' => '+uriData.statusMessage+'</a></div>');
+  $('#'+appendId).append('<div class="alert alert-'+appStatus+'" role="alert"><a href="'+uriData.uri+'" target="_blank" class="alert-link">'+uriData.uri+' => '+uriData.statusMessage+' ('+uriData.statusCode+')</a></div>');
 }
 
 
