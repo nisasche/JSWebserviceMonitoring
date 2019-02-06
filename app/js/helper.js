@@ -27,16 +27,19 @@ function alertLinksUris(name, uris) {
 }
 
 function pills(name){
-  $("#pills-tabContent").append('<div class="tab-pane fade" id="pills-'+name+'" role="tabpanel" aria-labelledby="pills-'+name+'-tab"></div>');
+  $("#pills-tabContent").append('<div class="tab-pane fade row justify-content-md-center" id="pills-'+name+'" role="tabpanel" aria-labelledby="pills-'+name+'-tab"></div>');
 }
 
 function pillsH4(name,h4) {
-  $('#pills-'+name).append('<h4 class="tabHeader">'+h4+'</h4><div id='+name+h4+'></div>');
+  $('#pills-'+name).append('<div class="col-md-auto"><h4 class="tabHeader">'+h4+'</h4><div id='+name+h4+'></div></div>');
 }
 
-function alertItem(appendId,uriData,appStatus) {
-  $('#'+appendId).append('<div class="alert alert-'+appStatus+'" role="alert"><a href="'+uriData.uri+'" target="_blank" class="alert-link">'+uriData.uri+' => '+uriData.statusMessage+' ('+uriData.statusCode+')</a></div>');
-}
+function alertItem(id,appendId,uriData,appStatus) {
+
+  var status = (uriData.statusMessage === undefined) ? 'on test': uriData.statusMessage+' ('+uriData.statusCode+')';
+    $('#'+appendId).append('<div id="'+id+'" class="alert alert-'+appStatus+'" role="alert"><a id="ref'+id+'" href="'+uriData.uri+'" target="_blank" class="alert-link">'+uriData.uri+' => '+status+'</a></div>');
+
+ }
 
 
 //App Function
@@ -61,10 +64,12 @@ function isTest(settingsApp, checkuri) {
   return enviroment;
 }
 
-function getInterval() {
-    var interval =  $('#interval').val();
-    localStorage.setItem("interval", interval);
-    return interval * 1000; //sec to millisec
+function setInterval(interval) {
+  localStorage.setItem('interval', interval);
+}
+
+function getInterval() { 
+    return localStorage.getItem('interval') * 1000; //sec to millisec
   }
   
   
@@ -72,4 +77,56 @@ function autoRefresh(){
           if ($('#autoRefresh').is(':checked')) { 
             location.reload(true);
           }
+}
+
+
+function getTesturis(settings) {
+
+  var urls = [];
+  var index = 1;
+  settings.application.forEach(element => {
+
+    if (element.kontext ===  null) {
+        var iProd = 0;
+        for (;element.PROD.url[iProd];){
+            urls.push( getTestUri(index,element.name,element.PROD.url[iProd]));
+            iProd++;
+            index++;
+        }
+        var iTest = 0;
+        for (;element.TEST.url[iTest];) {
+            urls.push( getTestUri(index,element.name,element.TEST.url[iTest]));
+            iTest++;
+            index++;
+        }
+
+    } else {
+        var ikon = 0;
+        for (;element.kontext[ikon];) {
+            var iKontextProd = 0;
+            for (;element.PROD.url[iKontextProd];){
+                urls.push( getTestUri(index,element.name,element.PROD.url[iKontextProd]+element.kontext[ikon]));
+                iKontextProd++;
+                index++;
+            }
+            var iKontextTest = 0;
+            for (;element.TEST.url[iKontextTest];) {
+                urls.push( getTestUri(index,element.name,element.TEST.url[iKontextTest]+element.kontext[ikon]));
+                iKontextTest++;
+                index++;
+            }
+          ikon++;
+        }   
+    }
+
+  });
+return urls;
+}
+
+function getTestUri(id,appName,url) {
+  var testuri = {}; 
+      testuri["id"] = id,
+      testuri["name"] = appName,
+      testuri["uri"] = url;
+  return testuri;
 }

@@ -1,44 +1,55 @@
 {
-
     "application": [
         {
-            "name": "google",        
-            "kontext": null, 
+            "name": "google",
+            "kontext": null,
             "statusOk": 200,
             "PROD": {
-                "url": "https://www.google.ch"
+                "url": [
+                    "https://www.google.ch"
+                ]
             },
             "TEST": {
-                "url": "https://google-test.ch"
+                "url": [
+                    "https://google-test.ch"
+                ]
             }
-        },   
-            {
-            "name":"git",
-            "kontext":["nisasche","test","all","kursausschreibung"],
+        },
+        {
+            "name": "git",
+            "kontext": [
+                "nisasche",
+                "test",
+                "all",
+                "kursausschreibung"
+            ],
             "statusOk": 200,
             "PROD": {
-                    "url": "https://github.com/"
-                    },
-            "TEST": {
-                    "url": "https://github-test.com/"
-                    }
+                "url": [
+                    "https://github.com/"
+                ]
             },
-
-            {
-                "name":"docker",
-                "kontext":null,
-                "statusOk": 200,
-                "PROD": {
-                    "url": "https://www.docker.com"
-                    },
-                "TEST": {
-                    "url": "https://docs.docker.com"
-                    }
-
-                }
-
-        ],
-
-    "refreshInterval": 5000
-
+            "TEST": {
+                "url": [
+                    "https://github-test.com/"
+                ]
+            }
+        },
+        {
+            "name": "docker",
+            "kontext": null,
+            "statusOk": 200,
+            "PROD": {
+                "url": [
+                    "https://www.docker.com"
+                ]
+            },
+            "TEST": {
+                "url": [
+                    "https://docs.docker.com"
+                ]
+            }
+        }
+    ],
+    "refreshInterval": 10
 }

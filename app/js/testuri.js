@@ -3,53 +3,53 @@
  * Copyright 2019 nisasche
  * Licensed under MIT (https://github.com/nisasche/JSWebserviceMonitoring/blob/master/LICENSE)
  */
-
+//import { getTesturis } from 'app/js/common';
 var urls = [];
-var filePathTestUri = 'testuri.json'; 
+var filePathTestUri = 'app/js/testuri.json'; 
+var common = require('./common');
 
 var fs = require('fs');
-
-var intervalJson = fs.readFileSync('settings.json');
-var interval = intervalJson.refreshIntervalSec;
-
-setTimeout(function(){ 
 
   var settings = fs.readFileSync('settings.json');
 
   var jsonSettings = JSON.parse(settings);
-  var interval = jsonSettings.refreshIntervalSec;
-  console.log(interval);
 
-
+    urls =  common.getTestUris(jsonSettings);
+/*
   jsonSettings.application.forEach(element => {
-     
-    var uriobj = {};
 
     if (element.kontext ===  null) {
-        uriobj['name'] = element.name,
-        uriobj['uri'] = element.PROD.url;
-        urls.push(uriobj); 
-        uriobj = {};
-        uriobj['name'] = element.name,
-        uriobj['uri'] = element.TEST.url;
-        urls.push(uriobj);
-        uriobj = {}; 
+        var iProd = 0;
+        for (;element.PROD.url[iProd];){
+            urls.push( getTestUri(element.name,element.PROD.url[iProd]));
+            iProd++;
+        }
+        var iTest = 0;
+        for (;element.TEST.url[iTest];) {
+            urls.push( getTestUri(element.name,element.TEST.url[iTest]));
+            iTest++;
+        }
+
     } else {
-        var i = 0;
-        for (;element.kontext[i];) {
-            uriobj['name'] = element.name,
-            uriobj["uri"] = element.PROD.url + element.kontext[i];
-            urls.push(uriobj); 
-            uriobj = {};
-            uriobj['name'] = element.name,
-            uriobj['uri'] = element.TEST.url +element.kontext[i];
-            urls.push(uriobj); 
-            uriobj = {};
-          i++;
+        var ikon = 0;
+        for (;element.kontext[ikon];) {
+            var iKontextProd = 0;
+            for (;element.PROD.url[iKontextProd];){
+                urls.push( getTestUri(element.name,element.PROD.url[iKontextProd]+element.kontext[ikon]));
+                iKontextProd++;
+            }
+            var iKontextTest = 0;
+            for (;element.TEST.url[iKontextTest];) {
+                urls.push( getTestUri(element.name,element.TEST.url[iKontextTest]+element.kontext[ikon]));
+                iKontextTest++;
+            }
+          ikon++;
         }   
     }
 
+
   });
+  */
 
 
 
@@ -76,6 +76,7 @@ urls.forEach(url => {
                 statusMessage = response.statusMessage;
             }
             var jsonData = {
+                "id": url.id,
                 "name": url.name,
                 "uri": url.uri,
                 "date": date,
@@ -96,4 +97,9 @@ urls.forEach(url => {
 });
 
 
-}, interval); //Set Timeout
+function getTestUri(appName,url) {
+    var testuri = {}; 
+        testuri['name'] = appName,
+        testuri['uri'] = url;
+    return testuri;
+}

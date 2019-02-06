@@ -6,6 +6,10 @@
 #nav, .tab-pane, .container, .tab-content{
     margin-top: 1rem;
   }
+
+  .logo {
+    margin-right: 20px;
+  }
   .mx-auto {
       width: 80%;
   }

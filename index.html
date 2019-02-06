@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="lib/fontawesome-free-5.6.3-web/css/all.min.css">
     <link rel="stylesheet" href="app/css//main.css"/>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <title>Monitoring Webservices</title>
   </head>
   <body>
@@ -21,12 +22,19 @@
     <div class="container mt-md-3">
             <div class="mx-auto">
             
-            
+          
 
         <!-- Content here -->
         <div id="nav" class="mb-md-3 mt-md-3">
         <div class="navbar fixed-top navbar-light bg-light">
+            
         <ul class="nav nav-pills" id="pills-tab" role="tablist">
+          <div id="logo" class="logo">
+             <a href=""> 
+               <img src="img/logo.png" alt="logo" height="42" width="42"> 
+              </a>
+          </div>
+            
             <li id="home" class="nav-item">
               <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">HOME</a>
             </li>
@@ -35,8 +43,8 @@
             <input id="autoRefresh" onchange="autoRefresh()" type="checkbox" checked data-toggle="toggle">
             auto-refresh
             </input>
-            <input id="interval" onchange="getInterval()" type="number" value="5">
-            interval (sec)
+            <input id="interval" style="display:none" onchange="getInterval()" type="number" value="5">
+            <!--interval (sec)-->
             </input>
           </div>
         </div> 
@@ -44,15 +52,30 @@
           </div>
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-              <h4 class="tabHeader">Status Application</h4>
-              <p id="lastTestDate"></p>
-              <div id=homeStatus>
+              <div class="row justify-content-md-center">
+                <!--
+                  <div class="col">
+                      <h4 class="tabHeader">Tasks state</h4>
+                      <div id="taskState">
+                        <p>test...</p>
 
-              </div>
+                    </div>
+                  </div> -->
+                </div>
+                  <div class="col-md-auto">
+                      <h4 class="tabHeader">Application status</h4>
+                      <p id="lastTestDate"></p>
+                      <div id=homeStatus>
+                      </div>
+                  </div>
+                  
+             
+
 
             </div>
 
          </div>
+
         </div>  
         <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-placement="left" style="display: block;">
           <i class="fa fa-chevron-up" aria-hidden="true"></i>
@@ -63,6 +86,7 @@
       </div>
 
 
+
     <!-- jQuery first then Bootstrap JS -->
     <script src="lib/js/jquery-3.3.1.min.js"></script>
     <script src="lib/js/bootstrap.min.js"></script>
@@ -70,6 +94,19 @@
     <script src="app/js/app.js"></script>
   </body>
   <script>
+
+
+
+    //IE not Supported
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+ 
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
+    {
+        alert('Internet Explorer is not supported. Please use a different browser (Chrome, Firefox or Safari in a current version).');
+    }
+    setInterval(6);
+
   $(document).ready(function(){
      $(window).scroll(function () {
             if ($(this).scrollTop() > 50) {
@@ -88,5 +125,6 @@
         
 
 });
+
   </script>
 </html>
